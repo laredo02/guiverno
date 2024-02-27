@@ -1,0 +1,71 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header, nav, main, footer {
+    text-align: center;
+    padding: 1rem;
+}
+
+header h1 {
+    color: #d35400;
+}
+
+nav ul {
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    
+    background-color: #d35400;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+}
+
+article {
+    background-color: #fff;
+    margin: 20px auto;
+    padding: 20px;
+    width: 80%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: justify;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    margin-top: 20px;
+}
+
+button {
+    background-color: #d35400;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+body {
+    overflow: hidden; /* Prevents scrollbars from appearing when kite moves */
+}
+
+#kite {
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    position: absolute;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); /* Creates a diamond shape */
+}
+
+
