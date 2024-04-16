@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
     <title>Guiverno</title>
     <link rel="stylesheet" href="style/style.css">
 </head>
@@ -14,6 +15,7 @@
                 <div><a href="index.html">Home</a></div>
                 <div><a href="html/cpp.html">C++</a></div>
                 <div><a href="html/x86.html">x86</a></div>
+                <div><a href="html/compiladores.html">Compiladores</a></div>
                 <div><a href="html/sistemas-operativos.html">Sistemas-Operativos</a></div>
                 <div><a href="html/graficos.html">Gráficos</a></div>
                 <div><a href="html/cuantica.html">Cuántica</a></div>
@@ -27,19 +29,33 @@
                     <img src="images/image.png" alt="Miguel Laredo" id="miguel-image">
                     <div id="miguel-description">
                         <h1>Miguel Laredo</h1>
-                        <p>Estudiante de Ingenieria de Computadores en la Universidad Politecnica de Madrid, aficionado a las Matemáticas y entusiasta del Deporte
+                        <p>Estudiante de Ingeniería de Computadores en la Universidad Politécnica de Madrid, aficionado a las Matemáticas y entusiasta del Deporte
                         <ul>
                             <li><a href="https://github.com/laredo02">githubgithub.com/laredo02</a></li>
                             <li><a href="https://linkedin.com/in/miguel-laredo">linkedin.com/in/miguel-laredo</a></li>
-                            <li><a href="mialto:miguellaredobarbadillo@gmail.com?Subject=GUIVERNO">miguellaredobarbadillo@gmail.com</a></li>
+                            <li><a href="mailto:miguellaredobarbadillo@gmail.com?Subject=GUIVERNO">miguellaredobarbadillo@gmail.com</a></li>
                         </ul>
                         </p>
+                    </div>
+                    <div id="donate-button-container">
+                    <div id="donate-button"></div>
+                    <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+                        <script>
+                            PayPal.Donation.Button({
+                                env:'production',
+                                hosted_button_id:'32S8XG796YW2A',
+                                image: {
+                                    src:'https://www.paypalobjects.com/es_ES/ES/i/btn/btn_donate_LG.gif',
+                                    alt:'Botón Donar con PayPal',
+                                    title:'PayPal - The safer, easier way to pay online!',
+                                }}).render('#donate-button');
+                        </script>
                     </div>
                 </aside>
 
                 <article>
                     <h2>Bienvenido a GUIVERNO</h2>
-                    <p>Hola, bienvenido a "guiverno.org". Este rincón de internet estará dedicadio a Computación y Matemáticas sobre todo. Por ahora este sitio web es a internet lo que un grano de arena es a la playa. Por algo se empieza</p>
+                    <p>Hola, bienvenido a "guiverno.org". Este rincón de internet estará dedicado a Computación y Matemáticas sobre todo. Por ahora este sitio web es a internet lo que un grano de arena es a la playa. Por algo se empieza</p>
                 </article>
         </div>
     </main>
