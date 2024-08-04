@@ -1,75 +1,161 @@
+
 <!DOCTYPE html>
+
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog de Miguel Laredo</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" rel="stylesheet"/>
 </head>
-<body style="font-family: 'Georgia', serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; text-align: justify; color: #333;">
 
-<h1 style="text-align: center; border-bottom: 2px solid #333; padding-bottom: 10px; color: #2c3e50;">Blog de Miguel Laredo</h1>
+<meta name="Miguel Laredo" content="Miguel Laredo"> 
 
+<body style="font-family: 'Georgia', serif; max-width: 1200px; margin: 0 auto; padding: 20px; line-height: 1.6; text-align: justify; color: #000;">
 
-<h2 style="color: #2c3e50;">Sobre Mí</h2>
+<h1 style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 10px; color: #000;">Miguel Laredo</h1>
+
+<h2 style="color: #000;">Sobre guiverno</h2>
 <p>
-Hola, soy Miguel Laredo. Soy un apasionado desarrollador de software y matemático. Me especializo en el desarrollo web, la optimización de bases de datos y la aplicación de modelos matemáticos en la resolución de problemas tecnológicos.
+    Hola, bienvenido a "guiverno.org". Este rincón de internet estará dedicado a Computación y Matemáticas sobre todo. Por ahora este sitio web es a internet lo que un grano de arena es a la playa. Por algo se empieza
 </p>
 
-<h2 style="color: #2c3e50;">Mis Proyectos</h2>
 
-<h3 style="color: #34495e;">1. Sistema de Gestión de Inventario</h3>
-<p>
-Desarrollé un sistema de gestión de inventario que utiliza modelos de predicción basados en series temporales. Una de las fórmulas clave que implementamos fue la suavización exponencial:
+<h2 style="color: #000;">Mandelbrot</h2>
 
-\[S_t = \alpha \cdot X_t + (1 - \alpha) \cdot S_{t-1}\]
+El conjunto de Mandelbrot es un conjunto matemático fascinante en la teoría de fractales, definido en el plano complejo. Se puede entender a través de la iteración de la función cuadrática compleja:
 
-Donde:
-\(S_t\) es el valor suavizado para el período t
-\(X_t\) es el valor observado en el período t
-\(\alpha\) es el factor de suavización (0 < \(\alpha\) < 1)
-</p>
+\[
+z_{n+1} = z_n^2 + c
+\]
 
-<h3 style="color: #34495e;">2. Aplicación Web de Optimización de Rutas</h3>
-<p>
-Creé una aplicación web que utiliza el algoritmo de Dijkstra para encontrar la ruta más corta entre dos puntos. La fórmula básica para actualizar las distancias es:
+donde \( z_0 = 0 \) y \( c \) es un número complejo. Un número complejo \( c \) pertenece al conjunto de Mandelbrot si la sucesión \(\{z_n\}\), definida por la iteración anterior, no tiende al infinito a medida que \(n\) aumenta.
 
-\[d[v] = \min(d[v], d[u] + w(u,v))\]
-
-Donde:
-\(d[v]\) es la distancia mínima al vértice v
-\(d[u]\) es la distancia mínima al vértice u
-\(w(u,v)\) es el peso de la arista entre u y v
-</p>
-
-<h3 style="color: #34495e;">3. Modelo de Aprendizaje Automático para Predicción de Precios</h3>
-<p>
-Implementé un modelo de regresión lineal para predecir precios. La ecuación del modelo es:
-
-\[y = \beta_0 + \beta_1x_1 + \beta_2x_2 + ... + \beta_nx_n + \epsilon\]
-
-Donde:
-\(y\) es la variable dependiente (precio)
-\(x_i\) son las variables independientes
-\(\beta_i\) son los coeficientes
-\(\epsilon\) es el término de error
-</p>
-
-<h2 style="color: #2c3e50;">Habilidades</h2>
+Para determinar si un número complejo \( c \) está en el conjunto de Mandelbrot, seguimos el siguiente procedimiento:
 <ul>
-    <li>Lenguajes de programación: Python, R, JavaScript, SQL</li>
-    <li>Frameworks: TensorFlow, PyTorch, React, Node.js</li>
-    <li>Matemáticas: Álgebra lineal, Cálculo, Estadística, Optimización</li>
-    <li>Bases de datos: MySQL, PostgreSQL, MongoDB</li>
-    <li>Control de versiones: Git</li>
+    <li>Inicialización: Comenzamos con \( z_0 = 0 \).</li>
+    <li>Iteración: Calculamos \( z_{n+1} = z_n^2 + c \) para \( n = 0, 1, 2, \ldots \)</li>
+    <li>Criterio de Divergencia: Si \( |z_n| \) supera un umbral (generalmente \(2\)) en algún momento, \(c\) no está en el conjunto de Mandelbrot. Si \( |z_n| \) permanece acotado, \(c\) pertenece al conjunto.i</li>
 </ul>
 
-<h2 style="color: #2c3e50;">Contacto</h2>
+<p>En el entorno CUDA, la clase <code>std::complex</code> de la biblioteca estándar de C++ no está disponible para operaciones en la GPU debido a incompatibilidades con el modelo de programación de CUDA y sus requisitos específicos para ejecución paralela. Para manejar números complejos en CUDA, es necesario definir una clase personalizada con las calificaciones <code>__host__</code> y <code>__device__</code>
+
+<pre><code class="language-c++">
+#pragma once
+
+namespace cum {
+
+    struct Complex {
+        float real;
+        float imag;
+
+        __host__ __device__ Complex(float real = 0.0f, float imag = 0.0f) : real(real), imag(imag) {}
+
+        __host__ __device__ float magnitude() const {
+            return sqrtf(real * real + imag * imag);
+        }
+
+        __host__ __device__ Complex operator+(const Complex &b) const {
+            return Complex(real + b.real, imag + b.imag);
+        }
+
+        __host__ __device__ Complex operator*(const Complex &b) const {
+            return Complex(real * b.real - imag * b.imag, real * b.imag + imag * b.real);
+        }
+
+    };
+
+}
+</code></pre>
+
+
+<pre><code class="language-c++">
+#include &lt;iostream&gt;
+#include &lt;cuda_runtime.h&gt;
+
+#include "Image.hpp"
+#include "Complex.cuh"
+
+// Función de mapeo para escalar el valor de profundidad a un rango de 0 a 255
+__host__ __device__ int map(int value, int imin, int imax, int fmin, int fmax) {
+    return (int) ((float)value / (imax - imin)) * ((float)fmax - fmin);
+}
+
+// Kernel para calcular el conjunto de Mandelbrot
+__global__ void mandelbrot(int* grid, int width, int height, cum::Complex leftop, cum::Complex rightbot, int max_depth) {
+    int x = blockDim.x * blockIdx.x + threadIdx.x;
+    int y = blockDim.y * blockIdx.y + threadIdx.y;
+    
+    if (x < width && y < height) {
+        double xstep = (rightbot.real - leftop.real) / (float)width;
+        double ystep = (leftop.imag - rightbot.imag) / (float)height;
+        double xcoord = leftop.real + x * xstep;
+        double ycoord = leftop.imag - y * ystep;
+        
+        cum::Complex z(0.0f, 0.0f);
+        cum::Complex c(xcoord, ycoord);
+        
+        int depth = 0;
+        while (z.magnitude() <= 2.0f && depth < max_depth) {
+            z = z * z + c;
+            depth++;
+        }
+        
+        int value = map(depth, 0, max_depth, 0, 255);
+        grid[y * width + x] = value;
+    }
+}
+
+int main() {
+    int width = 3840;
+    int height = 2160;
+    double aspect_ratio = width / (double)height;
+    
+    double w = 7.0;
+    
+    cum::Complex size(w, w * (1 / aspect_ratio));
+    cum::Complex center(0.0, 0.0);
+    cum::Complex leftop(center.real - size.real / 2.0, center.imag + size.imag / 2.0);
+    cum::Complex rightbot(center.real + size.real / 2.0, center.imag - size.imag / 2.0);
+    
+    int max_depth = 1000;
+    
+    int* grid;
+    cudaMallocManaged(&grid, sizeof(int) * width * height);
+    
+    dim3 threads(16, 16);  // Definir un número más razonable de hilos por bloque
+    dim3 blocks((width + threads.x - 1) / threads.x, (height + threads.y - 1) / threads.y);
+    
+    mandelbrot&lt;&lt;&lt;blocks, threads&gt;&gt;&gt;(grid, width, height, leftop, rightbot, max_depth);
+    cudaDeviceSynchronize();
+    
+    cum::Image img(width, height);
+    for (int y = 0; y < height; y++) {
+        for (int x = 0; x < width; x++) {
+            int value = grid[y * width + x];
+            img.setPixel(x, y, value, value, value);
+        }
+    }
+    
+    img.save("image.ppm");
+    
+    cudaFree(grid);
+    
+    return 0;
+}
+</code></pre>
+    
+
+
+<h2 style="color: #000;">Contacto</h2>
 <p>
 GitHub: <a href="https://github.com/laredo02" style="color: #3498db;">github.com/laredo02</a><br>
 LinkedIn: <a href="https://www.linkedin.com/in/miguel-laredo" style="color: #3498db;">linkedin.com/in/miguel-laredo</a><br>
-Email: miguel.laredo@email.com
+Telegram: <a href="https://t.me/laredo02" style="color: #3498db;">https://t.me/laredo02</a><br>
+
 </p>
 
 <hr style="border: 1px solid #ecf0f1;">
@@ -78,5 +164,7 @@ Email: miguel.laredo@email.com
     <p>&copy; 2024 Miguel Laredo. Todos los derechos reservados.</p>
 </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>
