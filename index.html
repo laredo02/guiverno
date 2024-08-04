@@ -1,70 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
-    <title>Guiverno</title>
-    <link rel="stylesheet" href="style/style.css">
+    <title>Blog de Miguel Laredo</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
-<body>
-    
-    <header>
-        <h1>GUIVERNO</h1>
-        <nav id="main-nav">
-                <div><a href="index.html">Home</a></div>
-                <div><a href="html/cpp.html">C++</a></div>
-                <div><a href="html/x86.html">x86</a></div>
-                <div><a href="html/compiladores.html">Compiladores</a></div>
-                <div><a href="html/sistemas-operativos.html">Sistemas-Operativos</a></div>
-                <div><a href="html/graficos.html">Gráficos</a></div>
-                <div><a href="html/cuantica.html">Cuántica</a></div>
-        </nav>
-    </header>
-    
+<body style="font-family: 'Georgia', serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; text-align: justify; color: #333;">
 
-    <main>
-        <div id="main-div">
-                <aside>
-                    <img src="images/image.png" alt="Miguel Laredo" id="miguel-image">
-                    <div id="miguel-description">
-                        <h1>Miguel Laredo</h1>
-                        <p>Estudiante de Ingeniería de Computadores en la Universidad Politécnica de Madrid, aficionado a las Matemáticas y entusiasta del Deporte
-                        <ul>
-                            <li><a href="https://github.com/laredo02">githubgithub.com/laredo02</a></li>
-                            <li><a href="https://linkedin.com/in/miguel-laredo">linkedin.com/in/miguel-laredo</a></li>
-                            <li><a href="mailto:miguellaredobarbadillo@gmail.com?Subject=GUIVERNO">miguellaredobarbadillo@gmail.com</a></li>
-                        </ul>
-                        </p>
-                    </div>
-                    <div id="donate-button-container">
-                    <div id="donate-button"></div>
-                    <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
-                        <script>
-                            PayPal.Donation.Button({
-                                env:'production',
-                                hosted_button_id:'32S8XG796YW2A',
-                                image: {
-                                    src:'https://www.paypalobjects.com/es_ES/ES/i/btn/btn_donate_LG.gif',
-                                    alt:'Botón Donar con PayPal',
-                                    title:'PayPal - The safer, easier way to pay online!',
-                                }}).render('#donate-button');
-                        </script>
-                    </div>
-                </aside>
+<h1 style="text-align: center; border-bottom: 2px solid #333; padding-bottom: 10px; color: #2c3e50;">Blog de Miguel Laredo</h1>
 
-                <article>
-                    <h2>Bienvenido a GUIVERNO</h2>
-                    <p>Hola, bienvenido a "guiverno.org". Este rincón de internet estará dedicado a Computación y Matemáticas sobre todo. Por ahora este sitio web es a internet lo que un grano de arena es a la playa. Por algo se empieza</p>
-                </article>
-        </div>
-    </main>
 
-    <footer>
-        <p>&copy; 2024 Guiverno. All rights reserved.</p>
-    </footer>
+<h2 style="color: #2c3e50;">Sobre Mí</h2>
+<p>
+Hola, soy Miguel Laredo. Soy un apasionado desarrollador de software y matemático. Me especializo en el desarrollo web, la optimización de bases de datos y la aplicación de modelos matemáticos en la resolución de problemas tecnológicos.
+</p>
 
-    <script src="scripts/script.js"></script>
+<h2 style="color: #2c3e50;">Mis Proyectos</h2>
+
+<h3 style="color: #34495e;">1. Sistema de Gestión de Inventario</h3>
+<p>
+Desarrollé un sistema de gestión de inventario que utiliza modelos de predicción basados en series temporales. Una de las fórmulas clave que implementamos fue la suavización exponencial:
+
+\[S_t = \alpha \cdot X_t + (1 - \alpha) \cdot S_{t-1}\]
+
+Donde:
+\(S_t\) es el valor suavizado para el período t
+\(X_t\) es el valor observado en el período t
+\(\alpha\) es el factor de suavización (0 < \(\alpha\) < 1)
+</p>
+
+<h3 style="color: #34495e;">2. Aplicación Web de Optimización de Rutas</h3>
+<p>
+Creé una aplicación web que utiliza el algoritmo de Dijkstra para encontrar la ruta más corta entre dos puntos. La fórmula básica para actualizar las distancias es:
+
+\[d[v] = \min(d[v], d[u] + w(u,v))\]
+
+Donde:
+\(d[v]\) es la distancia mínima al vértice v
+\(d[u]\) es la distancia mínima al vértice u
+\(w(u,v)\) es el peso de la arista entre u y v
+</p>
+
+<h3 style="color: #34495e;">3. Modelo de Aprendizaje Automático para Predicción de Precios</h3>
+<p>
+Implementé un modelo de regresión lineal para predecir precios. La ecuación del modelo es:
+
+\[y = \beta_0 + \beta_1x_1 + \beta_2x_2 + ... + \beta_nx_n + \epsilon\]
+
+Donde:
+\(y\) es la variable dependiente (precio)
+\(x_i\) son las variables independientes
+\(\beta_i\) son los coeficientes
+\(\epsilon\) es el término de error
+</p>
+
+<h2 style="color: #2c3e50;">Habilidades</h2>
+<ul>
+    <li>Lenguajes de programación: Python, R, JavaScript, SQL</li>
+    <li>Frameworks: TensorFlow, PyTorch, React, Node.js</li>
+    <li>Matemáticas: Álgebra lineal, Cálculo, Estadística, Optimización</li>
+    <li>Bases de datos: MySQL, PostgreSQL, MongoDB</li>
+    <li>Control de versiones: Git</li>
+</ul>
+
+<h2 style="color: #2c3e50;">Contacto</h2>
+<p>
+GitHub: <a href="https://github.com/laredo02" style="color: #3498db;">github.com/laredo02</a><br>
+LinkedIn: <a href="https://www.linkedin.com/in/miguel-laredo" style="color: #3498db;">linkedin.com/in/miguel-laredo</a><br>
+Email: miguel.laredo@email.com
+</p>
+
+<hr style="border: 1px solid #ecf0f1;">
+
+<footer style="text-align: center; margin-top: 20px; color: #7f8c8d;">
+    <p>&copy; 2024 Miguel Laredo. Todos los derechos reservados.</p>
+</footer>
+
 </body>
 </html>
-
