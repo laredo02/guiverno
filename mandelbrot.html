@@ -1,0 +1,124 @@
+
+<h2 style="text-align: center; color: #000;">Mandelbrot</h2>
+
+El conjunto de Mandelbrot es un conjunto matemático fascinante en la teoría de fractales, definido en el plano complejo. Se puede entender a través de la iteración de la función cuadrática compleja:
+
+\[
+z_{n+1} = z_n^2 + c
+\]
+
+donde \( z_0 = 0 \) y \( c \) es un número complejo. Un número complejo \( c \) pertenece al conjunto de Mandelbrot si la sucesión \(\{z_n\}\), definida por la iteración anterior, no tiende al infinito a medida que \(n\) aumenta.
+
+Para determinar si un número complejo \( c \) está en el conjunto de Mandelbrot, seguimos el siguiente procedimiento:
+<ul>
+    <li>Inicialización: Comenzamos con \( z_0 = 0 \).</li>
+    <li>Iteración: Calculamos \( z_{n+1} = z_n^2 + c \) para \( n = 0, 1, 2, \ldots \)</li>
+    <li>Criterio de Divergencia: Si \( |z_n| \) supera un umbral (generalmente \(2\)) en algún momento, \(c\) no está en el conjunto de Mandelbrot. Si \( |z_n| \) permanece acotado, \(c\) pertenece al conjunto.i</li>
+</ul>
+
+<p>En el entorno CUDA, la clase <code>std::complex</code> de la biblioteca estándar de C++ no está disponible para operaciones en la GPU debido a incompatibilidades con el modelo de programación de CUDA y sus requisitos específicos para ejecución paralela. Para manejar números complejos en CUDA, es necesario definir una clase personalizada con las calificaciones <code>__host__</code> y <code>__device__</code>
+
+<pre><code class="language-c++">
+#pragma once
+
+namespace cum {
+
+    struct Complex {
+        float real;
+        float imag;
+
+        __host__ __device__ Complex(float real = 0.0f, float imag = 0.0f) : real(real), imag(imag) {}
+
+        __host__ __device__ float magnitude() const {
+            return sqrtf(real * real + imag * imag);
+        }
+
+        __host__ __device__ Complex operator+(const Complex &b) const {
+            return Complex(real + b.real, imag + b.imag);
+        }
+
+        __host__ __device__ Complex operator*(const Complex &b) const {
+            return Complex(real * b.real - imag * b.imag, real * b.imag + imag * b.real);
+        }
+
+    };
+
+}
+</code></pre>
+
+
+<pre><code class="language-c++">
+#include &lt;iostream&gt;
+#include &lt;cuda_runtime.h&gt;
+
+#include "Image.hpp"
+#include "Complex.cuh"
+
+// Función de mapeo para escalar el valor de profundidad a un rango de 0 a 255
+__host__ __device__ int map(int value, int imin, int imax, int fmin, int fmax) {
+    return (int) ((float)value / (imax - imin)) * ((float)fmax - fmin);
+}
+
+// Kernel para calcular el conjunto de Mandelbrot
+__global__ void mandelbrot(int* grid, int width, int height, cum::Complex leftop, cum::Complex rightbot, int max_depth) {
+    int x = blockDim.x * blockIdx.x + threadIdx.x;
+    int y = blockDim.y * blockIdx.y + threadIdx.y;
+    
+    if (x < width && y < height) {
+        double xstep = (rightbot.real - leftop.real) / (float)width;
+        double ystep = (leftop.imag - rightbot.imag) / (float)height;
+        double xcoord = leftop.real + x * xstep;
+        double ycoord = leftop.imag - y * ystep;
+        
+        cum::Complex z(0.0f, 0.0f);
+        cum::Complex c(xcoord, ycoord);
+        
+        int depth = 0;
+        while (z.magnitude() <= 2.0f && depth < max_depth) {
+            z = z * z + c;
+            depth++;
+        }
+        
+        int value = map(depth, 0, max_depth, 0, 255);
+        grid[y * width + x] = value;
+    }
+}
+
+int main() {
+    int width = 3840;
+    int height = 2160;
+    double aspect_ratio = width / (double)height;
+    
+    double w = 7.0;
+    
+    cum::Complex size(w, w * (1 / aspect_ratio));
+    cum::Complex center(0.0, 0.0);
+    cum::Complex leftop(center.real - size.real / 2.0, center.imag + size.imag / 2.0);
+    cum::Complex rightbot(center.real + size.real / 2.0, center.imag - size.imag / 2.0);
+    
+    int max_depth = 1000;
+    
+    int* grid;
+    cudaMallocManaged(&grid, sizeof(int) * width * height);
+    
+    dim3 threads(16, 16);  // Definir un número más razonable de hilos por bloque
+    dim3 blocks((width + threads.x - 1) / threads.x, (height + threads.y - 1) / threads.y);
+    
+    mandelbrot&lt;&lt;&lt;blocks, threads&gt;&gt;&gt;(grid, width, height, leftop, rightbot, max_depth);
+    cudaDeviceSynchronize();
+    
+    cum::Image img(width, height);
+    for (int y = 0; y < height; y++) {
+        for (int x = 0; x < width; x++) {
+            int value = grid[y * width + x];
+            img.setPixel(x, y, value, value, value);
+        }
+    }
+    
+    img.save("image.ppm");
+    
+    cudaFree(grid);
+    
+    return 0;
+}
+</code></pre>
