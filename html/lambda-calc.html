@@ -7,13 +7,14 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../style/style.css">
   </head>
   <meta name="Miguel Laredo Barbadillo" content="Miguel Laredo Barbadillo">
   <body style="font-family: 'Georgia', serif; max-width: 1200px; margin: 0 auto; padding: 20px; line-height: 1.6; text-align: justify; color: #000;">
     <h2 style="text-align: center; color: #000;">Contenidos</h2>
     <ul style="text-align: center; list-style-type: none; padding: 0;">
-      <li><a href="../index.html" style="display: block; margin: 10px 0; color: #3498db;">Inicio</a></li>
-      <li><a href="papiroflexia.html" style="display: block; margin: 10px 0; color: #3498db;">Papiroflexia</a></li>
+      <li><a href="../index.html" style="display: block; margin: 10px 0;">Inicio</a></li>
+      <li><a href="papiroflexia.html" style="display: block; margin: 10px 0;">Papiroflexia</a></li>
     </ul>
 
 
@@ -27,25 +28,36 @@
 
 
     
-    <h2 style="text-align: center;"><a style="color: #3498db;" href="https://en.wikipedia.org/wiki/Lambda_calculus">Cálculo lambda</a></h2>
+    <h2 style="text-align: center;"><a href="https://en.wikipedia.org/wiki/Lambda_calculus">Cálculo lambda</a></h2>
     <p>
-      El <a style="color: #3498db;" href="https://en.wikipedia.org/wiki/Lambda_calculus">cálculo lambda</a> es el modelo computacional que sienta los cimientos de lo que son las funciones en su sentido más abstracto, además, establece nociones muy interesantes sobre equivalencia de funciones. En lo siguiente, presento una implementación sencilla de un interprete de cálculo lambda escrito en haskell, el próposito es programar un poco mientras escribo el trabajo de fin de máster, además me ayudará a simplificar ecuaciones y sacar resultados más rápidamente. Será interesante ver si puedo calcular ejemplos de algunos de los teoremas relevantes, como la propiedad de <a style="color: #3498db;" href="https://en.wikipedia.org/wiki/Church%E2%80%93Rosser_theorem">Church-Rosser</a>.
+      El <a href="https://en.wikipedia.org/wiki/Lambda_calculus">cálculo lambda</a> es el modelo computacional que sienta los cimientos de lo que son las funciones en su sentido más abstracto, además, establece nociones muy interesantes sobre equivalencia de funciones. En lo siguiente, presento una implementación sencilla de un interprete de cálculo lambda escrito en haskell, el próposito es programar un poco mientras escribo el trabajo de fin de máster, además me ayudará a simplificar ecuaciones y sacar resultados más rápidamente. Será interesante ver si puedo calcular ejemplos de algunos de los teoremas relevantes, como la propiedad de <a href="https://en.wikipedia.org/wiki/Church%E2%80%93Rosser_theorem">Church-Rosser</a>.
+    </p>
+    <p>
+      Si quieres saber más sobre haskell, o algo parecido a esto, te lo puedes descargar <a href="https://www.haskell.org/downloads/">aquí<a>. Por otro lado, un buen recurso para cálculo lambda y <i>proof theory</i>, es <a href="https://www.cambridge.org/core/books/type-theory-and-formal-proof/0472640AAD34E045C7F140B46A57A67C#"><i>Type Theory and Formal Proof: An Introduction</i></a>, de Rob Nederpelt Herman Geuvers. Habla sobre tipado y demostraciones formales, es un buen libro, bastante accesible excepto por el precio.
+    </p>
+    <h2 style="text-align: center;">Cálculo Lambda no Tipado</h2>
+    <p>
+      Todas las palabras que forman parte del lenguaje del cálculo lambda se producen a partir de la siguiente gramática:
     </p>
     <p>
       \[
-      M ::= x \mid (\lambda x. M) \mid (M \; N)
+      M ::= x \mid (\lambda x. M) \mid (M \ N)
       \]
     </p>
-    <p>where:</p>
+    <p>
+      donde:
+    </p>
     <ul>
-      <li>\( x \) is a variable.</li>
-      <li>\( \lambda x. M \) is a lambda abstraction (a function that binds \( x \) in \( M \)).</li>
-      <li>\( M \; N \) is an application of one lambda expression to another.</li>
+      <li>\( x \) es una variable, representando un carácter o cadena como un parámetro.</li>
+      <li>\( \lambda x. M \) es una abstracción lambda, una función que enlaza \( x \) en \( M \), donde \( x \) es la entrada y \( M \) es el cuerpo.</li>
+      <li>\( M \; N \) es una aplicación, aplicando la función \( M \) al argumento \( N \). Ambos, \( M \) y \( N \), son términos lambda.</li>
     </ul>
+    <p>
+      Lo anterior, lo podemos implementar en haskell utilizando <a href="https://wiki.haskell.org/index.php?title=Algebraic_data_type">tipos algebraicos</a>. Ya que nos permiten traducir la gramatica literalemente, lo cual facilita mucho:
+    </p>
     <pre><code class="language-haskell">data LambdaTerm = Var String
 	| Abs String LambdaTerm
-	| App LambdaTerm LambdaTerm
-    </code></pre>
+	| App LambdaTerm LambdaTerm</code></pre>
     
 
 
@@ -59,12 +71,12 @@
 
     <h2 style="color: #000;">Contacto</h2>
     <p>
-      GitHub: <a href="https://github.com/laredo02" style="color: #3498db;">github.com/laredo02</a><br>
-      LinkedIn: <a href="https://www.linkedin.com/in/miguel-laredo" style="color: #3498db;">linkedin.com/in/miguel-laredo</a><br>
-      Telegram: <a href="https://t.me/laredo02" style="color: #3498db;">https://t.me/laredo02</a><br>
+      GitHub: <a href="https://github.com/laredo02">github.com/laredo02</a><br>
+      LinkedIn: <a href="https://www.linkedin.com/in/miguel-laredo">linkedin.com/in/miguel-laredo</a><br>
+      Telegram: <a href="https://t.me/laredo02">https://t.me/laredo02</a><br>
     </p>
     <hr style="border: 1px solid #ecf0f1;">
-    <footer style="text-align: center; margin-top: 20px; color: #7f8c8d;">
+    <footer style="text-align: center; margin-top: 20px;">
       <p>&copy; 2024 Miguel Laredo. Este proyecto está bajo la Licencia Pública General GNU (GPL).</p>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>

@@ -1,0 +1,5 @@
+  a {
+    color: #3498db; /* Set the color */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Set font weight */
+  }
