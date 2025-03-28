@@ -3,7 +3,7 @@
 Guiverno es mi blog personal sobre papiroflexia, computación y matemáticas. El nombre se inspira en el *Dragon Book* sobre compiladores.
 
 ## Contenidos
-- **Papiroflexia**: Sección dedicada al origami.
+- **Papiroflexia**: Sección dedicada al plegado de papel ;)
 - **Cálculo Lambda**: Implementación del Cálculo Lambda escrita en Haskell.
 
 ## Contacto
