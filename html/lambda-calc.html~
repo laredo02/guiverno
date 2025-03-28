@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miguel Laredo Barbadillo</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" rel="stylesheet"/>
+  </head>
+
+  <meta name="Miguel Laredo Barbadillo" content="Miguel Laredo Barbadillo">
+  
+  <body style="font-family: 'Georgia', serif; max-width: 1200px; margin: 0 auto; padding: 20px; line-height: 1.6; text-align: justify; color: #000;">
+
+      <h2 style="text-align: center; color: #000;"><a href="https://en.wikipedia.org/wiki/Lambda_calculus">Cálculo lambda</a></h2>
+
+    <p>
+      El <a href="https://en.wikipedia.org/wiki/Lambda_calculus">cálculo lambda</a> es el modelo computacional que sienta los cimientos de lo que son las funciones en su sentido más abstracto, además, establece nociones muy interesantes sobre equivalencia de funciones. En lo siguiente, presento una implementación sencilla de un interprete de cálculo lambda escrito en haskell, el próposito es programar un poco mientras escribo el trabajo de fin de máster, además me ayudará a simplificar ecuaciones y sacar resultados más rápidamente. Será interesante ver si puedo calcular ejemplos de algunos de los teoremas relevantes, como la propiedad de <a href="https://en.wikipedia.org/wiki/Church%E2%80%93Rosser_theorem">Church-Rosser</a>.
+    </p>
+
+    <p>
+      \[
+      M ::= x \mid (\lambda x. M) \mid (M \; N)
+      \]
+    </p>
+
+    <p>where:</p>
+    <ul>
+      <li>\( x \) is a variable.</li>
+      <li>\( \lambda x. M \) is a lambda abstraction (a function that binds \( x \) in \( M \)).</li>
+      <li>\( M \; N \) is an application of one lambda expression to another.</li>
+    </ul>
+
+
+    <pre><code class="language-haskell">data LambdaTerm = Var String
+	| Abs String LambdaTerm
+	| App LambdaTerm LambdaTerm
+    </code></pre>
+
+    </p>
+
+    <h2 style="color: #000;">Contacto</h2>
+    <p>
+      GitHub: <a href="https://github.com/laredo02" style="color: #3498db;">github.com/laredo02</a><br>
+      LinkedIn: <a href="https://www.linkedin.com/in/miguel-laredo" style="color: #3498db;">linkedin.com/in/miguel-laredo</a><br>
+      Telegram: <a href="https://t.me/laredo02" style="color: #3498db;">https://t.me/laredo02</a><br>
+    </p>
+
+    <hr style="border: 1px solid #ecf0f1;">
+
+    <footer style="text-align: center; margin-top: 20px; color: #7f8c8d;">
+      <p>&copy; 2024 Miguel Laredo. Todos los derechos reservados.</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+    
+  </body>
+</html>
+
+

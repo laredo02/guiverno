@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><strong>Miguel Laredo Barbadillo</strong></title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" rel="stylesheet"/>
+  </head>
+
+  <meta name="Miguel Laredo Barbadillo" content="Miguel Laredo Barbadillo">
+  
+  <body style="font-family: 'Georgia', serif; max-width: 1200px; margin: 0 auto; padding: 20px; line-height: 1.6; text-align: justify; color: #000;">
+
+
+    <nav style="font-family: 'Georgia'; padding: 16px; text-align: center; border: 4px solid black; border-radius: 5px;">
+      <a href="index.html" style="color: black; text-decoration: none; margin: 0 20px; font-size: 22px;">Inicio</a>|
+      <a href="html/papiroflexia/papiroflexia.html" style="color: black; text-decoration: none; margin: 0 20px; font-size: 22px;">Papiroflexia</a>|
+      <a href="html/lambda-calc/lambda-calc.html" style="color: black; text-decoration: none; margin: 0 20px; font-size: 22px;">Computación</a>
+    </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    <h2 style="text-align: center; color: #000;">Papiroflexia</h2>
+
+    <p>
+
+      De vez en cuando, me vuelve a dar por hacer papiroflexia. Es una de las actividades que conservo desde que tenía como cinco o seis años. Dejo aquí abajo algunas interpretaciones mías de figuras de autor que me gustan. La primera de todas es la Migale de Manuel Sirgo, un modelo que guardo a buen recaudo desde hace unos once años y al que tengo mucho cariño a pesar de estar ya un poco maltratado por el tiempo, ya que marcó un antes y un después en la forma en que pliego. Supongo que tendría unos diez u once años por aquel entonces, pero recuerdo vivamente que ya fabricaba mi propio papel sándwich. En la foto de la derecha se observa cómo, en los pliegues más agresivos, el desgaste no ha perdonado y se puede ver el aluminio al descubierto. En la de la izquierda se empiezan a notar algunas transparencias también, aunque no son tan evidentes.
+      
+    </p>
+
+    <div style="text-align: center;">
+      <img src="../../rsc/migale-manuel-sirgo.jpg" alt="migale-enves" style="height: 400px; width: auto; margin: 10px;">
+      <img src="../../rsc/migale-manuel-sirgo2.jpg" alt="migale-reves" style="height: 400px; width: auto; margin: 10px;">
+    </div>
+
+    <p>
+      Otra interpretación distinta de la migale de un día que cayó entre mis manos un rollo de papel de regalo de unos 50cm. A mi la verdad que esta segunda no me gusta tanto. La redondez que tiene me recuerda bastante a la de una una mariquita, tambíen me han dicho que parece un cangrejo en alguna ocasión. Prefiero que tenga una apariencia más agresiva y un detalle más conseguido. Con este mismo papel de regalo modelé también la mujer del libro papiroflexia bicolor. Este año he hecho prácticamente todos los modelos de ese libro, la verdad que es bastante bueno, no como el papel.
+    </p>
+    
+    <div style="text-align: center;">
+      <img src="../../rsc/migale-regalo.jpg" alt="migale-regalo" style="height: 400px; width: auto; margin: 10px;">
+      <img src="../../rsc/seniora-en-bolas.jpg" alt="mujer" style="height: 400px; width: auto; margin: 10px;">
+    </div>
+
+
+    <p>
+      Otro clásico que me encanta es el toro de Gabriel Álvarez, un socio de la Asociación Española de Papiroflexia. Creo que Manuel, el dueño de Minimum, le conoce. Me parece un modelo sólido. A pesar de ser bastante sencillo, captura muy bien la esencia del toro, tanto en la postura como en las proporciones y las formas. También hay que decir que me ha costado bastante pillarle el truco a cómo plegar bien la cabeza para no fastidiar la morfología del resto de la pieza y no perder el equilibrio.
+    </p>
+
+
+
+
+
+
+
+
+    
+    
+    <h2 style="color: #000;">Contacto</h2>
+    <p>
+      GitHub: <a href="https://github.com/laredo02" style="color: #3498db;">github.com/laredo02</a><br>
+      LinkedIn: <a href="https://www.linkedin.com/in/miguel-laredo" style="color: #3498db;">linkedin.com/in/miguel-laredo</a><br>
+      Telegram: <a href="https://t.me/laredo02" style="color: #3498db;">https://t.me/laredo02</a><br>
+    </p>
+
+    <hr style="border: 1px solid #ecf0f1;">
+
+    <footer style="text-align: center; margin-top: 20px; color: #7f8c8d;">
+      <p>&copy; 2024 Miguel Laredo. Todos los derechos reservados.</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+    
+  </body>
+</html>
+
+
