@@ -28,16 +28,17 @@
 
 
     
-    <h2 style="text-align: center;"><a href="https://en.wikipedia.org/wiki/Lambda_calculus">Cálculo lambda</a></h2>
+    <h2 style="text-align: center;">Cálculo lambda</h2>
     <p>
-      El <a href="https://en.wikipedia.org/wiki/Lambda_calculus">cálculo lambda</a> es el modelo computacional que sienta los cimientos de lo que son las funciones en su sentido más abstracto, además, establece nociones muy interesantes sobre equivalencia de funciones. En lo siguiente, presento una implementación sencilla de un interprete de cálculo lambda escrito en haskell, el próposito es programar un poco mientras escribo el trabajo de fin de máster, además me ayudará a simplificar ecuaciones y sacar resultados más rápidamente. Será interesante ver si puedo calcular ejemplos de algunos de los teoremas relevantes, como la propiedad de <a href="https://en.wikipedia.org/wiki/Church%E2%80%93Rosser_theorem">Church-Rosser</a>.
+      El <a href="https://en.wikipedia.org/wiki/Lambda_calculus">cálculo lambda</a> es el modelo computacional que sienta los cimientos de lo que son las funciones en su sentido más abstracto, además, establece nociones muy interesantes sobre equivalencia de funciones. En lo siguiente, presento una implementación sencilla de un interprete de <a href="https://en.wikipedia.org/wiki/Lambda_calculus">cálculo lambda</a> escrito en <a href="    https://www.haskell.org/">Haskell</a>, el próposito es programar un poco mientras escribo el trabajo de fin de máster, además me ayudará a simplificar ecuaciones y sacar resultados más rápidamente. Será interesante ver si puedo calcular ejemplos de algunos de los teoremas relevantes, como la propiedad de <a href="https://en.wikipedia.org/wiki/Church%E2%80%93Rosser_theorem">Church-Rosser</a>.
     </p>
+
     <p>
-      Si quieres saber más sobre haskell, o algo parecido a esto, te lo puedes descargar <a href="https://www.haskell.org/downloads/">aquí</a>. Por otro lado, un buen recurso para cálculo lambda y <i>proof theory</i>, es <a href="https://www.cambridge.org/core/books/type-theory-and-formal-proof/0472640AAD34E045C7F140B46A57A67C#"><i>Type Theory and Formal Proof: An Introduction</i></a>, de Rob Nederpelt Herman Geuvers. Habla sobre tipado y demostraciones formales, es un buen libro, bastante accesible excepto por el precio.
+      Si quieres saber más sobre <a href="https://www.haskell.org/">Haskell</a>, o llevar a cabo algun proyecto similar, te lo puedes descargar <a href="https://www.haskell.org/downloads/">aquí</a>. Por otro lado, un buen recurso para cálculo lambda y <i>proof theory</i>, es <a href="https://www.cambridge.org/core/books/type-theory-and-formal-proof/0472640AAD34E045C7F140B46A57A67C#"><i>Type Theory and Formal Proof: An Introduction</i></a>, de Rob Nederpelt Herman Geuvers. Habla sobre tipado y demostraciones formales, es un buen libro, bastante accesible excepto por el precio.
     </p>
     <h2 style="text-align: center;">Cálculo Lambda no Tipado</h2>
     <p>
-      Todas las palabras que forman parte del lenguaje del cálculo lambda se producen a partir de la siguiente gramática:
+      Todos los términos o lambda términos que forman parte del lenguaje del <a href="https://en.wikipedia.org/wiki/Lambda_calculus">cálculo lambda</a> se producen a través de la siguiente gramática:
     </p>
     <p>
       \[
@@ -48,16 +49,43 @@
       donde:
     </p>
     <ul>
-      <li>\( x \) es una variable, representando un carácter o cadena como un parámetro.</li>
-      <li>\( \lambda x. M \) es una abstracción lambda, una función que enlaza \( x \) en \( M \), donde \( x \) es la entrada y \( M \) es el cuerpo.</li>
-      <li>\( M \; N \) es una aplicación, aplicando la función \( M \) al argumento \( N \). Ambos, \( M \) y \( N \), son términos lambda.</li>
+      <li>\( x \) es un parámetro.</li>
+      <li>\( \lambda x. M \) representa una abstracción lambda, una función que captura \( x \) en \( M \), de forma equivalente: \(x\) es un parámetro que se utiliza dentro de \(M\). Mediante la operación de aplicación, podemos dar valores concretos a \(x\) y evaluar \(M\).</li>
+      <li>\( M \; N \) significa aplicación, es decir, aplicación de la función \( M \) al argumento \( N \). Ambos, \( M \) y \( N \), son términos lambda.</li>
     </ul>
     <p>
-      Lo anterior, lo podemos implementar en haskell utilizando <a href="https://wiki.haskell.org/index.php?title=Algebraic_data_type">tipos algebraicos</a>. Ya que nos permiten traducir la gramatica literalemente, lo cual facilita mucho:
+      Lo anterior, lo podemos implementar en <a href="https://www.haskell.org/">Haskell</a> utilizando <a href="https://wiki.haskell.org/index.php?title=Algebraic_data_type">tipos algebraicos</a>. Ya que nos permiten traducir la gramatica literalemente, lo cual facilita mucho el trabajo:
     </p>
     <pre><code class="language-haskell">data LambdaTerm = Var String
 	| Abs String LambdaTerm
 	| App LambdaTerm LambdaTerm</code></pre>
+    <p>
+      Para mostrar las expresiones lambda que definamos dentro del programa, se puede por ejemplo, declarar una función <code>showTerm</code>, que devuelva un string con la representación del término, y luego otra función (<code>putTerm</code>) no pura que imprima el string por pantalla: 
+    </p>
+    <pre><code class="language-haskell">showTerm :: Term -> String
+showTerm (Var s) = s
+showTerm (Abs s t) = "(λ" ++ s ++ "." ++ showTerm t ++ ")"
+showTerm (App t1 t2) = (showTerm t1) ++ (showTerm t2)
+
+putTerm :: Term -> IO()
+putTerm t = putStrLn (showTerm t)</code></pre>
+    <p>
+      Ahora, desde la consola interactiva de <a href="    https://www.haskell.org/">Haskell</a>, es posible hacer lo siguiente:
+    </p>
+    <pre><code class="language-haskell">ghci> term = ((App (Abs "x" (App (Var "x") (Var "x"))) (Var "y")))
+ghci> putTerm term
+(λx.xx)y</code></pre>
+    <p>
+      de forma que podemos interpretar las expresiones lambda igual que lo haríamos en papel. Con estas utilidades básicas en orden, toca empezar a definir funciones para operar sobre termnos, empezamos con el cálculo del conjunto de variables libres, es decir, las variables que forman parte de una expresión lambda, y que no están capturadas por ninguna abstracción:
+    </p>
+    <pre><code class="language-haskell">freeVars :: Term -> Set.Set String
+freeVars (Var s) = Set.singleton s
+freeVars (Abs s t) = Set.delete s (freeVars t)
+freeVars (App t1 t2) = Set.union (freeVars t1) (freeVars t2)</code></pre>
+    <p>
+      Para poder utilizar los conjuntos del preludio de <a href="    https://www.haskell.org/">Haskell</a>, es necesario importarlos, con por ejemplo: <code class="language-haskell">import qualified Data.Set as Set</code> al principio del fichero que contenga el código.
+    </p>
+
     
 
 
