@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Inicial de Python</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f0f0f0;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #00b000;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        header img {
+            width: 150px;
+            display: block;
+            margin: 10px auto;
+        }
+
+        section {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #00b000;
+        }
+
+        pre {
+            background-color: #e0ffe0;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table, th, td {
+            border: 2px solid #00b000;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #00b000;
+            color: white;
+        }
+
+        .price-table th {
+            background-color: #008000;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        Aprende Python
+    </header>
+
+    <section>
+        <h2>Introducción a Python</h2>
+        <p>Python es un lenguaje fácil de aprender y muy versátil. Vamos a ver algunos conceptos básicos:</p>
+
+        <h3>1. Hello World</h3>
+        <pre>
+print("¡Hola, Mundo!")
+        </pre>
+
+        <h3>2. Variables</h3>
+        <pre>
+nombre = "Ana"
+edad = 12
+print("Hola, " + nombre + ", tienes " + str(edad) + " años")
+        </pre>
+
+        <h3>3. If Statements</h3>
+        <pre>
+edad = 18
+if edad >= 18:
+    print("Eres mayor de edad")
+else:
+    print("Eres menor de edad")
+        </pre>
+    </section>
+
+    <section>
+        <h2>Horario Semanal</h2>
+        <table>
+            <tr>
+                <th>Día</th>
+                <th>Hora</th>
+                <th>Actividad</th>
+            </tr>
+            <tr>
+                <td>Lunes</td>
+                <td>10:00 - 12:00</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Martes</td>
+                <td>10:00 - 12:00</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Miércoles</td>
+                <td>10:00 - 12:00</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Jueves</td>
+                <td>10:00 - 12:00</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Viernes</td>
+                <td>10:00 - 12:00</td>
+                <td></td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <h2>Precios</h2>
+        <table class="price-table">
+            <tr>
+                <th>Curso</th>
+                <th>Precio</th>
+            </tr>
+            <tr>
+                <td>Colegio Madrid</td>
+                <td>$</td>
+            </tr>
+            </tr>
+        </table>
+    </section>
+
+    <footer>
+        Para más información: guiverno.coding@gmail.com
+    </footer>
+
+</body>
+</html>
