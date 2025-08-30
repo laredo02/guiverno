@@ -1,0 +1,103 @@
+
+\documentclass[portrait]{a0poster}
+\usepackage{fontspec}
+\setmainfont{Merriweather Sans}
+\setsansfont{Carlito} 
+\setmonofont{Fira Mono}
+\usepackage{xcolor} 
+\usepackage{tikz} 
+\usetikzlibrary{calc}
+\usepackage{graphicx}
+\usepackage{qrcode} 
+\usepackage{hyperref}
+\usepackage{eso-pic}
+\usepackage[absolute,overlay]{textpos}
+
+\definecolor{background}{HTML}{ffffff} 
+\definecolor{textcolor}{HTML}{000000}
+\definecolor{accent}{HTML}{30d030}
+
+\newcommand{\hl}[1]{\textcolor{accent}{#1}}
+
+\begin{document}
+
+\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=north west, opacity=0.3, inner sep=0pt, outer sep=0pt] 
+    at ([xshift=-10cm,yshift=0cm]current page.north west) 
+    {\includegraphics[height=150cm]{pythonlogo.png}};
+\end{tikzpicture}
+
+\begin{tikzpicture}[remember picture,overlay]
+    \node[textcolor,font={\VeryHuge\bfseries},scale=2,text width=0.45\pagewidth,align=left] (title) at (40,-12cm) {Aprende a \hl{Programar} \\\rightline{con \hl{Python}}};
+    \node[anchor=north east,textcolor,font={\large},align=right,scale=2] at ($(title.south east)+(0,-0.5cm)$) {El mejor día para empezar es hoy};
+\end{tikzpicture}
+
+\begin{tikzpicture}[remember picture,overlay]
+    \node[textcolor,font={\Huge\bfseries},scale=1.5,text width=0.60\pagewidth,align=left] (title) at (40,-44cm) {
+    ¡\hl{Hackea} tu futuro con Python!\\
+    Empieza a crear tus propios \hl{juegos y apps}
+    };
+\end{tikzpicture}
+
+\begin{tikzpicture}[remember picture,overlay]
+    \node[textcolor,font={\Huge\bfseries},scale=1.2,text width=0.60\pagewidth,align=left] (title) at (33,-53.5cm) {
+    \begin{itemize}
+    \item[] Programa tus primeros videojuegos
+    \item[] Resuelve retos algorítmicos
+    \item[] Crea apps y mucho más
+    \end{itemize}
+    };
+
+\end{tikzpicture}
+
+
+
+\begin{tikzpicture}[remember picture,overlay]
+    \node[textcolor,font={\Huge\bfseries},scale=1,text width=0.885\pagewidth, align=justify] (title) at (40,-80cm) {
+Aprende a automatizar tareas aburridas, crea tus propios \hl{bots} y da tus primeros pasos con \hl{inteligencia artificial}. Resuelve retos y \hl{puzzles de lógica} mientras desarrollas habilidades que te servirán en cole, la universidad y el futuro. Construye apps que ayuden a tu \hl{comunidad} y transforma tus ideas en proyectos reales.
+    };
+\end{tikzpicture}
+
+\begin{tikzpicture}[remember picture,overlay]
+    \node[textcolor,font={\Huge\bfseries},scale=1.3,text width=0.5\pagewidth, align=justify] (title) at (29.8,-90cm) {
+        ¡Diviértete aprendiendo y creando!
+    };
+\end{tikzpicture}
+
+\begin{tikzpicture}[remember picture, overlay, x=88mm,y=88mm]
+  \begin{scope}[shift={(current page.center)}]
+  \foreach \x/\y [count=\i from 1] in {
+  -2/-6, -3/-6, -4/-6, -5/-6, -5/-2, -4/-2, -3/-2,
+  -2/-2, -1/-2, 0/-2, 1/-2, 1/-1, 2/-1, 3/-1, 4/-1, 4/0, 4/1, 4/2,
+  3/2, 2/2, 1/2, 0/2, -1/2, -2/2, -3/2, -4/2
+  }{
+    \pgfmathsetmacro{\tone}{45+\i}
+    \fill[rounded corners=0.6mm, green!\tone!black] (\x,\y) rectangle ++(1,1);
+    \draw[white, line width=0.3pt] (\x,\y) rectangle ++(1,1);
+  }
+    \fill[green!69!black] (-4, 3.002) -- (-3, 3.002) -- (-3.5, 4) -- cycle;
+    \fill[rounded corners=0.6mm, green!60!black] (-0.99,-6.10) rectangle ++(1.2,1.2);
+    \fill[white!100] (-0.3,-4.88) -- (0.22,-5.16) -- (0.22,-4.9) -- cycle;
+    \fill[white!100] (-0.3,-6.12) -- (0.22,-5.84) -- (0.22,-6.1) -- cycle;
+    \draw[red, line width=40pt] (0.21,-5.5) -- (0.7,-5.5);
+    \fill[red!100] (0.7,-5.42) -- (0.7,-5.5) -- (1.1,-5.3) -- cycle;
+    \fill[red!100] (0.7,-5.58) -- (0.7,-5.5) -- (1.1,-5.7) -- cycle;
+    \end{scope}
+\end{tikzpicture}
+
+\begin{tikzpicture}[remember picture,overlay]
+  \node[anchor=south east, inner sep=0pt] (qrcodebase) 
+    at ([xshift=-6.5cm, yshift=5.3cm]current page.south east)
+    {\qrcode[hyperlink,height=0.24\pagewidth]{https://laredo02.github.io/guiverno/pages/python-coding.html}};
+\end{tikzpicture}
+
+\begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=south west, font=\large\ttfamily, inner sep=0pt] 
+        at ([xshift=1.5cm, yshift=1.5cm] current page.south west) 
+        {
+        \Huge{Para más información: \href{mailto:guiverno.coding@gmail.com}{guiverno.coding@gmail.com}}
+        };
+\end{tikzpicture}
+
+\end{document}
+
