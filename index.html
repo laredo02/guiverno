@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PJLH5LFS');</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="Miguel Laredo Barbadillo" content="Miguel Laredo Barbadillo">
@@ -11,34 +16,34 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F0C1E9LXW6"></script>
     <script>
-  if (localStorage.getItem('darkMode') === 'enabled') {
-      document.body.classList.add('dark-mode');
-  }
-  window.addEventListener('DOMContentLoaded', function() {
-      const button = document.querySelector('.dark-mode-toggle');
-      const img = document.querySelector('img[alt="Miguel Laredo"]');
-      
       if (localStorage.getItem('darkMode') === 'enabled') {
-          button.textContent = '☀️';
-          img.src = 'rsc/foto2.jpg';
+	  document.body.classList.add('dark-mode');
       }
-  });
-  function toggleDarkMode() {
-      const body = document.body;
-      const button = document.querySelector('.dark-mode-toggle');
-      const img = document.querySelector('img[alt="Miguel Laredo"]');
-      body.classList.toggle('dark-mode');
-      if (body.classList.contains('dark-mode')) {
-          button.textContent = '☀️';
-          localStorage.setItem('darkMode', 'enabled');
-          img.src = 'rsc/foto2.jpg';
-      } else {
-          button.textContent = '🌙';
-          localStorage.setItem('darkMode', 'disabled');
-          img.src = 'rsc/foto.jpg';
+      window.addEventListener('DOMContentLoaded', function() {
+	  const button = document.querySelector('.dark-mode-toggle');
+	  const img = document.querySelector('img[alt="Miguel Laredo"]');
+	  
+	  if (localStorage.getItem('darkMode') === 'enabled') {
+              button.textContent = '☀️';
+              img.src = 'rsc/foto2.jpg';
+	  }
+      });
+      function toggleDarkMode() {
+	  const body = document.body;
+	  const button = document.querySelector('.dark-mode-toggle');
+	  const img = document.querySelector('img[alt="Miguel Laredo"]');
+	  body.classList.toggle('dark-mode');
+	  if (body.classList.contains('dark-mode')) {
+              button.textContent = '☀️';
+              localStorage.setItem('darkMode', 'enabled');
+              img.src = 'rsc/foto2.jpg';
+	  } else {
+              button.textContent = '🌙';
+              localStorage.setItem('darkMode', 'disabled');
+              img.src = 'rsc/foto.jpg';
+	  }
       }
-  }
-</script>
+    </script>
     <style>
       body.dark-mode {
           background-color: #1a1a1a;
@@ -98,6 +103,8 @@
     </style>
   </head>
   <body style="font-family: 'Georgia', serif; max-width: 1200px; margin: 0 auto; padding: 20px; line-height: 1.6; text-align: justify; color: #000;">
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PJLH5LFS"
+		      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
     <h1 style="text-align: center; padding-bottom: 0px;">Miguel Laredo Barbadillo</h1>
     <div style="display: flex; justify-content: center; margin-top: 20px;">
