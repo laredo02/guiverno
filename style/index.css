@@ -1,0 +1,162 @@
+body.index-page {
+  font-family: 'Georgia', serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  line-height: 1.6;
+  text-align: justify;
+  color: #000;
+}
+
+body.index-page.dark-mode {
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+}
+
+body.index-page.dark-mode h1,
+body.index-page.dark-mode h2 {
+  color: #f0f0f0;
+}
+
+body.index-page.dark-mode p {
+  color: #e8e8e8;
+}
+
+body.index-page.dark-mode a {
+  color: #ff6b6b;
+}
+
+body.index-page.dark-mode a:hover {
+  color: #ff8787;
+}
+
+body.index-page.dark-mode .menu-box {
+  background-color: #2d2d2d;
+  border-color: #444;
+}
+
+body.index-page.dark-mode .menu-box li {
+  color: #e8e8e8;
+}
+
+body.index-page.dark-mode .menu-box a {
+  color: #ff4f4f;
+}
+
+body.index-page.dark-mode .menu-box a:hover {
+  color: #ff8787;
+}
+
+body.index-page.dark-mode hr {
+  border-color: #444;
+}
+
+body.index-page.dark-mode footer,
+body.index-page.dark-mode footer p {
+  color: #aaa;
+}
+
+.dark-mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  z-index: 1000;
+}
+
+body.dark-mode .dark-mode-toggle {
+  background-color: #f0f0f0;
+  color: #000;
+}
+
+.hero {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.hero-inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.hero-text p {
+  max-width: 500px;
+  text-align: justify;
+  margin: 0;
+}
+
+.menu-box {
+  border-radius: 4px;
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto 0 auto;
+  text-align: center;
+  border: 4px solid #999;
+  padding: 10px 0;
+}
+
+.menu-box ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-box li + li {
+  margin-top: 0.5rem;
+}
+
+.menu-box a {
+  display: block;
+  margin: 10px 0;
+  color: #3498db;
+  text-decoration: none;
+}
+
+.menu-box a:hover {
+  text-decoration: underline;
+}
+
+.hero-image img {
+  height: 400px;
+  width: auto;
+  margin: 10px;
+}
+
+hr {
+  border: 1px solid #ecf0f1;
+}
+
+footer {
+  text-align: center;
+  margin-top: 20px;
+  color: #7f8c8d;
+}
+
+footer p {
+  margin: 0;
+}
+
+noscript iframe {
+  display: none;
+  visibility: hidden;
+}
+
+@media (max-width: 900px) {
+  .hero-inner {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-image img {
+    height: auto;
+    max-width: 100%;
+  }
+}
