@@ -33,7 +33,7 @@ body.section-page {
 }
 
 body.section-page .content {
-  max-width: 900px;
+  max-width: 700px;
   margin: 0 auto;
 }
 
@@ -55,7 +55,7 @@ body.section-page h2 {
 body.section-page p,
 body.section-page ul,
 body.section-page ol {
-  font-size: 1.05rem;
+  font-size: 1rem;
 }
 
 body.section-page pre {
