@@ -1,0 +1,31 @@
+<p>
+  Ayer abrí mi
+  <a href="https://github.com/leanprover-community/mathlib4/pull/40845">primer pull request</a>
+  en <a href="https://github.com/leanprover-community/mathlib4">Mathlib4</a>, la
+  biblioteca de matemáticas formalizadas de Lean. Añade un teorema de
+  teoría de grupos:
+</p>
+<p class="statement">
+  El cociente de un grupo finitamente presentado por un subgrupo cuya clausura
+  normal es finitamente generada vuelve a ser finitamente presentado.
+</p>
+<p>
+  La demostración se apoya en <code>of_surjective</code> (la imagen de un grupo
+  finitamente presentado bajo un homomorfismo suprayectivo con clausura normal
+  del núcleo finitamente generada es finitamente presentada), a la que también
+  añadí su docstring y la anotación <code>@[to_additive]</code> para obtener
+  gratis la versión aditiva:
+</p>
+<pre><code class="language-lean">theorem quotient [hG : IsFinitelyPresented G] (N : Subgroup G) [N.Normal]
+    (hN : N.IsNormalClosureFG) : IsFinitelyPresented (G ⧸ N) :=
+  of_surjective (QuotientGroup.mk' N) (QuotientGroup.mk'_surjective N)
+    ((QuotientGroup.ker_mk' N).symm ▸ hN)</code></pre>
+<p>
+  Gracias a <code>@[to_additive]</code>, el sistema genera automáticamente
+  <code>AddGroup.IsFinitelyPresented.quotient</code> a partir de la versión
+  multiplicativa. Una primera toma de contacto con el flujo de contribución de
+  Mathlib: convenciones de nombres, cola de revisión y CI.
+</p>
+<p>
+  A ver si hay suerte y lo mergean pronto. Gracias a Javier Gómez Zaragoza y Hang Lu Su por el apoyo!
+</p>
