@@ -8,73 +8,6 @@ body.index-page {
   color: #000;
 }
 
-body.index-page.dark-mode {
-  background-color: #1a1a1a;
-  color: #f0f0f0;
-}
-
-body.index-page.dark-mode h1,
-body.index-page.dark-mode h2 {
-  color: #f0f0f0;
-}
-
-body.index-page.dark-mode p {
-  color: #e8e8e8;
-}
-
-body.index-page.dark-mode a {
-  color: #ff6b6b;
-}
-
-body.index-page.dark-mode a:hover {
-  color: #ff8787;
-}
-
-body.index-page.dark-mode .menu-box {
-  background-color: #2d2d2d;
-  border-color: #444;
-}
-
-body.index-page.dark-mode .menu-box li {
-  color: #e8e8e8;
-}
-
-body.index-page.dark-mode .menu-box a {
-  color: #ff4f4f;
-}
-
-body.index-page.dark-mode .menu-box a:hover {
-  color: #ff8787;
-}
-
-body.index-page.dark-mode hr {
-  border-color: #444;
-}
-
-body.index-page.dark-mode footer,
-body.index-page.dark-mode footer p {
-  color: #aaa;
-}
-
-.dark-mode-toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background-color: #333;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 14px;
-  z-index: 1000;
-}
-
-body.dark-mode .dark-mode-toggle {
-  background-color: #f0f0f0;
-  color: #000;
-}
-
 .hero {
   display: flex;
   justify-content: center;
@@ -183,10 +116,6 @@ hr {
   margin-top: -8px;
 }
 
-body.index-page.dark-mode .blog-meta {
-  color: #aaa;
-}
-
 .blog-content pre {
   overflow-x: auto;
   border-radius: 6px;
@@ -199,58 +128,6 @@ body.index-page.dark-mode .blog-meta {
   background: #f1f1f1;
   overflow-wrap: break-word;
   word-break: break-word;
-}
-
-body.index-page.dark-mode .blog-content :not(pre) > code {
-  background: #2d2d2d;
-  color: #e8e8e8;
-}
-
-body.index-page.dark-mode .blog-content pre[class*="language-"],
-body.index-page.dark-mode .blog-content code[class*="language-"] {
-  color: #f0f0f0;
-  text-shadow: none;
-  background: #2d2d2d;
-}
-
-body.index-page.dark-mode .blog-content pre[class*="language-"] {
-  border: 1px solid #444;
-}
-
-body.index-page.dark-mode .blog-content .token.comment,
-body.index-page.dark-mode .blog-content .token.prolog,
-body.index-page.dark-mode .blog-content .token.doctype,
-body.index-page.dark-mode .blog-content .token.cdata {
-  color: #999;
-}
-
-body.index-page.dark-mode .blog-content .token.keyword,
-body.index-page.dark-mode .blog-content .token.boolean,
-body.index-page.dark-mode .blog-content .token.atrule {
-  color: #c792ea;
-}
-
-body.index-page.dark-mode .blog-content .token.string,
-body.index-page.dark-mode .blog-content .token.char,
-body.index-page.dark-mode .blog-content .token.attr-value {
-  color: #a5d6a7;
-}
-
-body.index-page.dark-mode .blog-content .token.function,
-body.index-page.dark-mode .blog-content .token.class-name {
-  color: #82aaff;
-}
-
-body.index-page.dark-mode .blog-content .token.number,
-body.index-page.dark-mode .blog-content .token.constant,
-body.index-page.dark-mode .blog-content .token.symbol {
-  color: #f78c6c;
-}
-
-body.index-page.dark-mode .blog-content .token.operator,
-body.index-page.dark-mode .blog-content .token.punctuation {
-  color: #d6d6d6;
-  background: transparent;
 }
 
 footer {
