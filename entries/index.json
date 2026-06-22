@@ -1,6 +1,12 @@
 [
   {
-    "title": "Primera PR a Mathlib4",
+    "title": "Mathlib4: PR «mergeada»",
+    "date": "22-06-2026",
+    "author": "Miguel Laredo",
+    "file": "22-06-2026-mathlib-merged.html"
+  },
+  {
+    "title": "Mathlib4: Primera PR",
     "date": "21-06-2026",
     "author": "Miguel Laredo",
     "file": "21-06-2026-mathlib.html"
