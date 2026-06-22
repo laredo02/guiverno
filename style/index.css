@@ -16,7 +16,7 @@ body.index-page {
 
 .hero-inner {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 48px;
   max-width: 1000px;
   width: auto;
