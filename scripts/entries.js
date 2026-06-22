@@ -49,7 +49,12 @@ document.addEventListener('DOMContentLoaded', function () {
       }));
     })
     .then(function (articles) {
-      articles.forEach(function (article) {
+      articles.forEach(function (article, i) {
+        if (i > 0) {
+          const divider = document.createElement('hr');
+          divider.className = 'entry-divider';
+          container.appendChild(divider);
+        }
         container.appendChild(article);
       });
     })

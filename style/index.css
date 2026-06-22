@@ -92,6 +92,20 @@ hr {
   margin: 0 auto;
 }
 
+.blog-divider {
+  max-width: 700px;
+  margin: 30px auto;
+  border: none;
+  border-top: 2px solid #ccc;
+}
+
+.entry-divider {
+  max-width: 700px;
+  margin: 40px auto;
+  border: none;
+  border-top: 1px solid #eee;
+}
+
 .blog-content p {
   text-align: justify;
   text-align-last: left;
@@ -140,7 +154,8 @@ hr {
 
 footer {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 40px;
+  margin-bottom: 60px;
   color: #7f8c8d;
 }
 
