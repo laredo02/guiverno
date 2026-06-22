@@ -10,8 +10,14 @@ document.addEventListener('DOMContentLoaded', function () {
       return res.json();
     })
     .then(function (entries) {
+      // date llega como DD-MM-YYYY, así que la pasamos a Date para ordenar
+      // cronológicamente (más reciente primero).
+      function parseDate(s) {
+        const parts = s.split('-');
+        return new Date(parts[2], parts[1] - 1, parts[0]);
+      }
       entries.sort(function (a, b) {
-        return b.date.localeCompare(a.date);
+        return parseDate(b.date) - parseDate(a.date);
       });
 
       return Promise.all(entries.map(function (entry) {
