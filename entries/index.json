@@ -1,20 +1,20 @@
 [
   {
     "title": "Primera PR a Mathlib4",
-    "date": "2026-06-21",
+    "date": "21-06-2026",
     "author": "Miguel Laredo",
-    "file": "2026-06-21-mathlib.html"
+    "file": "21-06-2026-mathlib.html"
   },
   {
     "title": "Sobre el origami",
-    "date": "2025-09-04",
+    "date": "04-09-2025",
     "author": "Miguel Laredo",
-    "file": "2026-05-01-origami.html"
+    "file": "04-09-2025-origami.html"
   },
   {
     "title": "Un raycaster en q",
-    "date": "2026-02-15",
+    "date": "19-06-2026",
     "author": "Miguel Laredo",
-    "file": "2026-02-15-raycaster-q.html"
+    "file": "19-06-2026-raycaster-q.html"
   }
 ]
