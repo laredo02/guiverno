@@ -92,8 +92,9 @@ hr {
   margin: 0 auto;
 }
 
-.blog-divider {
-  max-width: 700px;
+.hero-divider {
+  width: 728px;
+  max-width: 100%;
   margin: 30px auto;
   border: none;
   border-top: 2px solid #ccc;
@@ -130,6 +131,64 @@ hr {
 
 .blog-entry + .blog-entry {
   margin-top: 40px;
+}
+
+.entry-split {
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
+}
+
+.entry-split-text {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.entry-split-text p:first-child {
+  margin-top: 0;
+}
+
+.entry-split-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* La columna del GIF no participa en el cálculo de altura: la figura toma su
+   altura de la columna de texto (vía stretch) y la imagen se posiciona en
+   absoluto para llenarla exactamente, recortando el sobrante con cover. */
+.entry-split-media {
+  flex: 0 0 38%;
+  position: relative;
+  margin: 0;
+  min-height: 0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.entry-split-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  margin: 0;
+  object-fit: cover;
+}
+
+@media (max-width: 600px) {
+  .entry-split {
+    flex-direction: column;
+  }
+
+  .entry-split-media {
+    flex-basis: auto;
+    position: static;
+    aspect-ratio: 16 / 10;
+  }
+
+  .entry-split-media img {
+    position: static;
+    height: 100%;
+  }
 }
 
 .blog-meta {

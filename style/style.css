@@ -72,7 +72,8 @@ body.section-page code {
   border-radius: 4px;
 }
 
-body.section-page .section-gallery {
+body.section-page .section-gallery,
+.blog-content .section-gallery {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
@@ -80,22 +81,26 @@ body.section-page .section-gallery {
   margin: 1.5rem 0;
 }
 
-body.section-page .section-gallery figure {
+body.section-page .section-gallery figure,
+.blog-content .section-gallery figure {
   flex: 1 1 min(280px, 45%);
   max-width: 48%;
   margin: 0;
   text-align: center;
 }
 
-body.section-page .section-gallery img {
+body.section-page .section-gallery img,
+.blog-content .section-gallery img {
   width: 100%;
+  max-width: none;
   height: auto;
   border-radius: 12px;
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
   display: block;
 }
 
-body.section-page .section-gallery figcaption {
+body.section-page .section-gallery figcaption,
+.blog-content .section-gallery figcaption {
   margin-top: 0.65rem;
   font-size: 0.95rem;
   color: #555;
@@ -103,14 +108,16 @@ body.section-page .section-gallery figcaption {
 
 /* Mosaico: migale y toro apilados en la columna izquierda, mujer (alta)
    ocupando la columna derecha. */
-body.section-page .section-gallery--mosaic {
+body.section-page .section-gallery--mosaic,
+.blog-content .section-gallery--mosaic {
   display: flex;
   flex-wrap: nowrap;
   align-items: stretch;
   gap: 1rem;
 }
 
-body.section-page .section-gallery--mosaic .mosaic-stack {
+body.section-page .section-gallery--mosaic .mosaic-stack,
+.blog-content .section-gallery--mosaic .mosaic-stack {
   flex: 1 1 0;
   min-width: 0;
   display: flex;
@@ -118,13 +125,15 @@ body.section-page .section-gallery--mosaic .mosaic-stack {
   gap: 1rem;
 }
 
-body.section-page .section-gallery--mosaic .mosaic-stack figure {
+body.section-page .section-gallery--mosaic .mosaic-stack figure,
+.blog-content .section-gallery--mosaic .mosaic-stack figure {
   flex: 0 1 auto;
   max-width: none;
   width: 100%;
 }
 
-body.section-page .section-gallery--mosaic .gallery-tall {
+body.section-page .section-gallery--mosaic .gallery-tall,
+.blog-content .section-gallery--mosaic .gallery-tall {
   flex: 1 1 0;
   min-width: 0;
   max-width: none;
@@ -134,7 +143,8 @@ body.section-page .section-gallery--mosaic .gallery-tall {
 
 /* La imagen de la mujer llena la altura de su columna (= migale + toro)
    recortando el sobrante para que el bloque forme un rectángulo. */
-body.section-page .section-gallery--mosaic .gallery-tall img {
+body.section-page .section-gallery--mosaic .gallery-tall img,
+.blog-content .section-gallery--mosaic .gallery-tall img {
   flex: 1 1 auto;
   height: 0;
   min-height: 0;
@@ -142,12 +152,14 @@ body.section-page .section-gallery--mosaic .gallery-tall img {
 }
 
 @media (max-width: 760px) {
-  body.section-page .section-gallery figure {
+  body.section-page .section-gallery figure,
+  .blog-content .section-gallery figure {
     max-width: 100%;
     flex: 1 1 100%;
   }
 
-  body.section-page .section-gallery--mosaic {
+  body.section-page .section-gallery--mosaic,
+  .blog-content .section-gallery--mosaic {
     flex-direction: column;
   }
 }
